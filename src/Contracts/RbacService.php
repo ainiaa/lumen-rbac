@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Rbac\Contracts;
+<?php
+
+namespace Nord\Lumen\Rbac\Contracts;
 
 use Crisu83\Overseer\Entity\Assignment;
 use Crisu83\Overseer\Entity\Permission;
@@ -8,7 +10,6 @@ use Crisu83\Overseer\Entity\Subject;
 
 interface RbacService
 {
-
     /**
      * @param array $config
      *
@@ -16,30 +17,27 @@ interface RbacService
      */
     public function configure(array $config);
 
-
     /**
-     * @param Resource|null $resource
+     * @param resource|null $resource
      * @param array         $params
      *
      * @return array
      */
     public function getPermissions(Resource $resource = null, array $params = []);
 
-
     /**
      * @param string        $permissionName
-     * @param Resource|null $resource
+     * @param resource|null $resource
      * @param array         $params
      *
      * @return bool
      */
     public function hasPermissions($permissionName, Resource $resource = null, array $params = []);
 
-
     /**
      * @param string        $permissionName
      * @param Subject       $subject
-     * @param Resource|null $resource
+     * @param resource|null $resource
      * @param array         $params
      *
      * @return mixed
@@ -51,18 +49,15 @@ interface RbacService
         array $params = []
     );
 
-
     /**
      * @param Role $role
      */
     public function saveRole(Role $role);
 
-
     /**
      * @param Permission $permission
      */
     public function savePermission(Permission $permission);
-
 
     /**
      * @param Subject $subject
@@ -70,7 +65,6 @@ interface RbacService
      * @return Role[]
      */
     public function getRolesForSubject(Subject $subject);
-
 
     /**
      * @param Subject $subject
@@ -80,7 +74,6 @@ interface RbacService
      */
     public function createAssignment(Subject $subject, array $roles = []);
 
-
     /**
      * @param Subject $subject
      * @param array   $roles
@@ -89,7 +82,6 @@ interface RbacService
      */
     public function updateAssignment(Subject $subject, array $roles);
 
-
     /**
      * @param Subject $subject
      *
@@ -97,12 +89,10 @@ interface RbacService
      */
     public function getAssignment(Subject $subject);
 
-
     /**
      * @param Subject $subject
      */
     public function deleteAssignment(Subject $subject);
-
 
     /**
      * @param SubjectProvider $provider

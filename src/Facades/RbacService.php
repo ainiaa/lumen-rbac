@@ -1,12 +1,13 @@
-<?php namespace Nord\Lumen\Rbac\Facades;
+<?php
+
+namespace Nord\Lumen\Rbac\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 class RbacService extends Facade
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected static function getFacadeAccessor()
     {

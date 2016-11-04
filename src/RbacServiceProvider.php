@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Rbac;
+<?php
+
+namespace Nord\Lumen\Rbac;
 
 use Exception;
 use Illuminate\Config\Repository as ConfigRepository;
@@ -8,9 +10,8 @@ use Nord\Lumen\Rbac\Facades\RbacService as RbacServiceFacade;
 
 class RbacServiceProvider extends ServiceProvider
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function register()
     {
@@ -18,7 +19,6 @@ class RbacServiceProvider extends ServiceProvider
         $this->registerFacades();
         $this->registerConsoleCommands();
     }
-
 
     /**
      * @param Container        $container
@@ -43,25 +43,18 @@ class RbacServiceProvider extends ServiceProvider
     }
 
 
-    /**
-     *
-     */
     protected function registerFacades()
     {
         class_alias(RbacServiceFacade::class, 'Rbac');
     }
 
 
-    /**
-     *
-     */
     protected function registerConsoleCommands()
     {
         $this->commands([
             'Nord\Lumen\Rbac\Console\ConfigureCommand',
         ]);
     }
-
 
     /**
      * @param Container $container
@@ -70,7 +63,7 @@ class RbacServiceProvider extends ServiceProvider
      */
     protected function createService(Container $container)
     {
-        $overseer        = $container->make('Crisu83\Overseer\Overseer');
+        $overseer = $container->make('Crisu83\Overseer\Overseer');
         $subjectProvider = $container->make('Nord\Lumen\Rbac\Contracts\SubjectProvider');
 
         return new RbacService($overseer, $subjectProvider);

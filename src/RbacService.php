@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Rbac;
+<?php
+
+namespace Nord\Lumen\Rbac;
 
 use Crisu83\Overseer\Entity\Assignment;
 use Crisu83\Overseer\Entity\Permission;
@@ -11,7 +13,6 @@ use Nord\Lumen\Rbac\Contracts\SubjectProvider;
 
 class RbacService implements RbacServiceContract
 {
-
     /**
      * @var Overseer
      */
@@ -22,7 +23,6 @@ class RbacService implements RbacServiceContract
      */
     private $subjectProvider;
 
-
     /**
      * RbacService constructor.
      *
@@ -31,22 +31,20 @@ class RbacService implements RbacServiceContract
      */
     public function __construct(Overseer $overseer, SubjectProvider $subjectProvider)
     {
-        $this->overseer        = $overseer;
+        $this->overseer = $overseer;
         $this->subjectProvider = $subjectProvider;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function configure(array $config)
     {
         $this->overseer->configure($config);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getPermissions(Resource $resource = null, array $params = [])
     {
@@ -55,9 +53,8 @@ class RbacService implements RbacServiceContract
         return $this->overseer->getPermissions($subject, $resource, $params);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function hasPermissions($permissionName, Resource $resource = null, array $params = [])
     {
@@ -66,9 +63,8 @@ class RbacService implements RbacServiceContract
         return $this->overseer->hasPermission($permissionName, $subject, $resource, $params);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function subjectHasPermissions(
         $permissionName,
@@ -79,36 +75,32 @@ class RbacService implements RbacServiceContract
         return $this->overseer->hasPermission($permissionName, $subject, $resource, $params);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function saveRole(Role $role)
     {
         $this->overseer->saveRole($role);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function savePermission(Permission $permission)
     {
         $this->overseer->savePermission($permission);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getRolesForSubject(Subject $subject)
     {
         return $this->overseer->getRolesForSubject($subject);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function createAssignment(Subject $subject, array $roles = [])
     {
@@ -119,9 +111,8 @@ class RbacService implements RbacServiceContract
         return $assignment;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function updateAssignment(Subject $subject, array $roles)
     {
@@ -136,18 +127,16 @@ class RbacService implements RbacServiceContract
         return $assignment;
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getAssignment(Subject $subject)
     {
         return $this->overseer->getAssignmentForSubject($subject);
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function deleteAssignment(Subject $subject)
     {
@@ -158,9 +147,8 @@ class RbacService implements RbacServiceContract
         }
     }
 
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function setSubjectProvider($provider)
     {
