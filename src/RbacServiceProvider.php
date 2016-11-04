@@ -42,12 +42,10 @@ class RbacServiceProvider extends ServiceProvider
         });
     }
 
-
     protected function registerFacades()
     {
         class_alias(RbacServiceFacade::class, 'Rbac');
     }
-
 
     protected function registerConsoleCommands()
     {
