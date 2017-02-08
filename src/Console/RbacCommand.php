@@ -1,12 +1,12 @@
-<?php namespace Nord\Lumen\Rbac\Console;
+<?php
 
-use Doctrine\ORM\EntityManager;
+namespace Nord\Lumen\Rbac\Console;
+
 use Illuminate\Console\Command;
 use Nord\Lumen\Rbac\Contracts\RbacService;
 
 abstract class RbacCommand extends Command
 {
-
     /**
      * @var RbacService
      */

@@ -1,11 +1,12 @@
-<?php namespace Nord\Lumen\Rbac\Console;
+<?php
+
+namespace Nord\Lumen\Rbac\Console;
 
 use Exception;
 use Symfony\Component\Console\Input\InputOption;
 
 class ConfigureCommand extends RbacCommand
 {
-
     /**
      * @var string
      */
@@ -17,7 +18,7 @@ class ConfigureCommand extends RbacCommand
     protected $description = 'Configures the RBAC service from a file.';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function fire()
     {
@@ -33,7 +34,7 @@ class ConfigureCommand extends RbacCommand
             throw new Exception('Configuration file not found.');
         }
 
-        $config = require($configPath);
+        $config = require $configPath;
 
         $this->getRbacService()->configure($config);
     }
