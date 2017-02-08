@@ -1,4 +1,6 @@
-<?php namespace Nord\Lumen\Rbac\Doctrine;
+<?php
+
+namespace Nord\Lumen\Rbac\Doctrine;
 
 use Crisu83\Overseer\Doctrine\Storage\AssignmentStorage;
 use Crisu83\Overseer\Doctrine\Storage\PermissionStorage;
@@ -8,15 +10,13 @@ use Illuminate\Support\ServiceProvider;
 
 class DoctrineStorageServiceProvider extends ServiceProvider
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function register()
     {
         $this->registerContainerBindings($this->app);
     }
-
 
     /**
      * @param Container $container
